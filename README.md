@@ -1,4 +1,4 @@
-# adminweb_vue
+# vue-cli3.0 admin
 
 ## Project setup
 ```
