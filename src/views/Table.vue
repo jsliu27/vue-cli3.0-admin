@@ -54,9 +54,9 @@
                   ></el-input>
               </td>
               <td>
-                <a href="javascript:;" @click="removeTr(index, i)">
+                <a href=" " @click="removeTr(index, i)">
                   删除
-                  </a>
+                </a>
                 </td>
             </tr>
           </template>
@@ -207,7 +207,7 @@ export default {
           obj.s_score += Number(ele.s_score)
         })
         // 小计
-        if (index == arr.length - 1) {
+        if (index === arr.length - 1) {
           item.data.forEach((ele, i) => {
             subObj.KPI += Number(ele.KPI)
             subObj.standard += Number(ele.standard)
@@ -233,15 +233,15 @@ export default {
       this.groupData[index].data.push(addItem)
     },
     // 删除
-    removeTr (tr_i, td_i) {
-      if (this.groupData[tr_i].data.length == 1) {
+    removeTr (trIndex, tdIndex) {
+      if (this.groupData[trIndex].data.length === 1) {
         this.$message('只有一条不能删除，因为太丑了')
-      }else {
-        this.groupData[tr_i].data.splice(td_i, 1)
+      } else {
+        this.groupData[trIndex].data.splice(tdIndex, 1)
       }
     }
 
-  },
+  }
 }
 </script>
 <style lang="less" scoped>
