@@ -1,0 +1,46 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.ptdi_icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #1296db;
+  box-sizing: border-box;
+  border-radius: 2px;
+  position: relative;
+}
+.ptdi_icon.ptdi_jia::after {
+  content: '';
+  width: 90%;
+  height: 2px;
+  background: #1296db;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  margin-top: -1px;
+}
+.ptdi_icon.ptdi_jia::before {
+  content: '';
+  width: 2px;
+  height: 90%;
+  background: #1296db;
+  border-radius: 2px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  margin-left: -1px;
+}
+.ptdi_icon.ptdi_jian::after {
+  content: '';
+  width: 90%;
+  height: 2px;
+  background: #1296db;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  margin-top: -1px;
+}

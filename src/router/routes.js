@@ -1,6 +1,7 @@
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login'
 import Table from '@/views/Table'
+import tableChild from '@/views/tableChild'
 import Register from '@/views/Register'
 // 创建路由
 const routes = [{
@@ -59,6 +60,11 @@ const routes = [{
 {
   path: '/table',
   component: Table
+},
+// 表格带子类表格
+{
+  path: '/tableChild',
+  component: tableChild
 },
 {
   path: '*',
