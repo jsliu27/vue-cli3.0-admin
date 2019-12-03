@@ -3,6 +3,10 @@ import Login from '@/views/Login'
 import Table from '@/views/Table'
 import tableChild from '@/views/tableChild'
 import Register from '@/views/Register'
+import tabs from '@/views/tabs'
+import Add from '@/views/tabs/Add'
+import Return from '@/views/tabs/Return'
+
 // 创建路由
 const routes = [{
   path: '/',
@@ -53,6 +57,20 @@ const routes = [{
     // UserPosts 会被渲染在 User 的 <router-view> 中
     path: 'posts',
     component: Login
+  },
+  {
+    path: 'tabs',
+    component: tabs,
+    children: [
+      {
+        path: 'add',
+        component: Add
+      },
+      {
+        path: 'return',
+        component: Return
+      }
+    ]
   }
   ]
 },
