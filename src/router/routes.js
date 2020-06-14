@@ -6,6 +6,7 @@ import Register from '@/views/Register'
 import tabs from '@/views/tabs'
 import Add from '@/views/tabs/Add'
 import Return from '@/views/tabs/Return'
+import PM from '@/views/product/productManagement'
 
 // 创建路由
 const routes = [{
@@ -59,7 +60,7 @@ const routes = [{
     component: Login
   },
   {
-    path: 'tabs',
+    path: '/tabs',
     component: tabs,
     children: [
       {
@@ -83,6 +84,10 @@ const routes = [{
 {
   path: '/tableChild',
   component: tableChild
+},
+{
+  path: '/productManagement',
+  component: PM
 },
 {
   path: '*',

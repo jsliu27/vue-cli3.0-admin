@@ -122,8 +122,7 @@ export default {
   name: 'tableChild',
   data () {
     return {
-      // 打开项索引
-      extendIndex: '',
+
       // 表格数据
       tableData: [
         {
@@ -349,10 +348,47 @@ export default {
               i.className = 'ptdi_icon ptdi_jia'
             } else {
               i.className = 'ptdi_icon ptdi_jian'
+              // 父元素tr
+              const tr = this.parentElement.parentElement.parentElement
+              if (!/expanded/.test(tr.className)) {
+                tr.className = tr.className + ' expanded'
+              }
+              // 获取tr的所有兄弟
+              const siblings = _siblings(tr)
+              // 遍历素有兄弟将所有兄弟中的expand的类名去掉
+              for (let i = 0; i < siblings.length; i++) {
+                // eslint-disable-next-line camelcase
+                const s_tr = siblings[i]
+                // 正则匹配如果有expanded类名的返回true没有返回false
+                // 判断条件也可以用indexOf s_tr.className.indexOf('expanded') > -1
+                if (/expanded/.test(s_tr.className)) {
+                  // 将 expanded替换成空
+                  s_tr.className = s_tr.className.replace('expanded', '')
+                  // 同时干掉他下面的元素
+                  s_tr.nextSibling.style.display = 0
+                  // 将所有的兄弟内的标签换成加号
+                  const i = s_tr.querySelector('.ptdi_jian')
+                  i.className = 'ptdi_icon ptdi_jia'
+                }
+              }
+              console.log('siblings====>', siblings)
             }
           })
         }
       }, 0)
+      function _siblings (elm) {
+        var siblings = []
+        // 获取父元素第一个孩子
+        var child = elm.parentElement.firstChild
+        // for循环 child=下一个兄弟
+        for (; child; child = child.nextSibling) {
+          // 判断是不是元素节点这个人是不是自己
+          if (child.nodeType === 1 && child !== elm) {
+            siblings.push(child)
+          }
+        }
+        return siblings
+      }
     },
     // 验收情况点击触发的事件
     planHandle (rowData) {
@@ -370,17 +406,17 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-  .table {
-    width: 90%;
-    margin: 50px auto;
-    .tableChildren {
-      width: 100%;
-      .finish {
-        color: #67C23A;
-      }
-      .overdue {
-        color: #F56C6C;
-      }
+.table {
+  width: 90%;
+  margin: 50px auto;
+  .tableChildren {
+    width: 100%;
+    .finish {
+      color: #67c23a;
+    }
+    .overdue {
+      color: #f56c6c;
     }
   }
+}
 </style>
