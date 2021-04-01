@@ -2,6 +2,7 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login'
 import Table from '@/views/Table'
 import Register from '@/views/Register'
+import CustomTheader from '@/views/CustomTheader'
 // 创建路由
 const routes = [{
   path: '/',
@@ -65,6 +66,11 @@ const routes = [{
   name: 'root',
   // 重定向
   component: Login
+},
+// 自定义表头
+{
+  path: '/customTheader',
+  component: CustomTheader
 }
 ]
 
